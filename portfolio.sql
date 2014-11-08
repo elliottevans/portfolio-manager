@@ -45,7 +45,7 @@ create table owned_by(
 
 --Each portfolio has an id that's at least 8 characers long.
 
-  portfolio_id integer not null references portfolios(id)     
+  portfolio_id varchar(256) not null references portfolios(id)     
 )
 
 create table portfolios(
@@ -53,7 +53,7 @@ create table portfolios(
 
 --Each portfolio has an id that uniquely identifies it.
 
-  id integer not null primary key,
+  id varchar(256) not null primary key,
 
 --Each portfolio has an associated cash amount
 
@@ -69,7 +69,7 @@ create table holdings_of(
   stock_id integer not null references stocks(id),
 
 --Each portfolio has a unique id.
-  portfolio_id integer not null references portfolios(id) primary key,
+  portfolio_id varchar(256) not null references portfolios(id) primary key,
 )
 
 create table stocks(
@@ -85,7 +85,7 @@ create table stocks(
 
 --Every stock has a unique id.
 
-  id integer not null primary key,
+  id varchar(256) not null primary key,
 
 --Each stock has a number of shares owne by a user 
 
